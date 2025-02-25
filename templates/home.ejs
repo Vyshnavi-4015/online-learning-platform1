@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/home.css"> <!-- Include CSS file -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <%- include('nav',{uname : uname}) %>
+    <div class="courses-container">
+        <% users.forEach((user) => { %>
+            <div class="course-card">
+                <a href="/courseDetails/<%= user.courseName%>">
+                    <img src="/course.png" alt="Course Image" class="course-img">
+                </a>
+                <div class="course-info">
+                    <h2 class="course-title"><%= user.courseName %></h2>
+                    <p class="course-description">Short description about the course or its topics.</p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <script>
+        function toggleProfileMenu() {
+            const menu = document.getElementById('profile-menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+        window.addEventListener('click', function(event) {
+            const menu = document.getElementById('profile-menu');
+            const profileContainer = document.querySelector('.profile-container');
+            
+            if (!profileContainer.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between buttons and profile */
+    align-items: center;
+    background: linear-gradient(90deg, #004d7a, #008793, #00bf72);
+    padding: 10px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Left Section for Navigation Buttons */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-button {
+    background: #ffffff;
+    color: #004d7a;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+    background: #004d7a;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Section for Profile Image */
+.profile-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-container:hover {
+    transform: scale(1.1);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile Dropdown Menu */
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    overflow: hidden;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.profile-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.profile-menu ul li {
+    padding: 12px 15px;
+    text-align: left;
+    transition: background 0.3s ease-in-out;
+}
+
+.profile-menu ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.profile-menu ul li a:hover {
+    color: #008793;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* User Name Styling */
+.user-name {
+    font-size: 2.5rem; /* Increased font size */
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    animation: colorAnimate 4s linear infinite, sizeAnimate 4s ease-in-out infinite;
+}
+@keyframes colorAnimate {
+    0% {
+        color: #004d7a; /* Initial color (Dark Blue) */
+    }
+    50% {
+        color: #ffffff; /* Midway color (White) */
+    }
+    100% {
+        color: #008793; /* Final color (Greenish Blue) */
+    }
+}
+/* Size Animation */
+@keyframes sizeAnimate {
+    0% {
+        font-size: 2.5rem; /* Start size */
+    }
+    25% {
+        font-size: 3rem; /* Slightly larger */
+    }
+    50% {
+        font-size: 3.5rem; /* Larger */
+    }
+    75% {
+        font-size: 3rem; /* Slightly smaller */
+    }
+    100% {
+        font-size: 2.5rem; /* Original size */
+    }
+}

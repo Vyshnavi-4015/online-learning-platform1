@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= courseName %> Details</title>
+    <link rel="stylesheet" href="/courseDetails.css">
+    <script>
+        function toggleContent(topicId) {
+            const content = document.getElementById(topicId);
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="course-detail-container">
+        <h1 class="course-title"><%= courseName %></h1>
+
+        <div class="topics-container">
+            <% topiccontent.forEach((pair, index) => { %>
+                <div class="topic">
+                    <div class="topic-header" onclick="toggleContent('topic-<%= index %>')">
+                        <h2><%= index + 1 %>. <%= pair.topic %></h2>
+                    </div>
+                    <div id="topic-<%= index %>"  class="topic-content" style="display: none;">
+                        <ol>
+                            <% pair.content.forEach((ks, contentIndex) => { %>
+                                <a href="/tutorials?url=<%= encodeURIComponent(ks.url) %>">
+                                    <li><%= ks.name%></li>
+                                </a>
+                            <% }) %>
+                        </ol>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <button onclick="location.href='/home'">Back to Courses</button>
+    </div>
+</body>
+</html>

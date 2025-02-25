@@ -1,0 +1,90 @@
+/* Reset */
+body, h1, h2, h3, p, button, ol, li {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f1f1; /* Light background */
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Container Styles */
+.course-detail-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white; /* Card-like background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.course-title {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    text-align: center; /* Centered title */
+}
+
+.topics-container {
+    text-align: left; /* Align topics to the left */
+    margin: 20px 0;
+}
+
+.topic {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.topic-header h2 {
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topic-header h2:hover {
+    color: #4CAF50; /* Green highlight on hover */
+}
+
+.topic-content {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.topic-content ol {
+    list-style: decimal; /* Ordered list numbering */
+    padding-left: 20px;
+}
+
+.topic-content li {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Button Styles */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

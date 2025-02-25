@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/nav.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Left Section with Nav Buttons -->
+        <div class="nav-left">
+            <button class="nav-button" onclick="location.href='/home'">Home</button>    
+            <button class="nav-button" onclick="location.href='/addcourse'">Add Course</button>
+            <button class="nav-button" onclick="location.href='/updatecourse'">Update Course</button>
+            <button class="nav-button" onclick="location.href='/deletecourse'">Delete Course</button>
+            <button class="nav-button" onclick="location.href='/tutorials'">Tutorials</button>
+        </div>
+        
+        <div class="user-name">
+            <span>Welcome, <%= uname || 'Guest' %>!</span> <!-- If userName is not found, display 'Guest' -->
+        </div>            
+        <!-- Right Section with Profile Image -->
+        <div class="profile-container" onclick="toggleProfileMenu()">
+            <img src="/profile.jpg" alt="Profile" class="profile-img">
+        </div>
+    </nav>
+
+    <div id="profile-menu" class="profile-menu">
+        <ul>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/settings">Settings</a></li>
+            <li><a href="/password">Change Password</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleProfileMenu() {
+            const menu = document.getElementById('profile-menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        window.addEventListener('click', function(event) {
+            const menu = document.getElementById('profile-menu');
+            const profileContainer = document.querySelector('.profile-container');
+            
+            if (!profileContainer.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

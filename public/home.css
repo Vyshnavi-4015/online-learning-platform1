@@ -1,0 +1,210 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #66a3d2, #80c8c3, #99d5b6); /* Lighter gradient */
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Left Section for Navigation Buttons */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-button {
+    background: #ffffff;
+    color: #66a3d2;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+    background: #66a3d2;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Section for Profile Image */
+.profile-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-container:hover {
+    transform: scale(1.1);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile Dropdown Menu */
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    overflow: hidden;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.profile-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.profile-menu ul li {
+    padding: 12px 15px;
+    text-align: left;
+    transition: background 0.3s ease-in-out;
+}
+
+.profile-menu ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.profile-menu ul li a:hover {
+    color: #80c8c3; /* Lighter teal */
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Course Container */
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Course Card */
+.course-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-card a {
+    text-decoration: none;
+}
+
+/* Course Image */
+.course-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+/* Course Information */
+.course-info {
+    padding: 15px;
+}
+
+.course-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.course-title:hover {
+    color: #66a3d2; /* Light blue */
+}
+
+.course-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .course-card {
+        font-size: 14px;
+    }
+    
+    .courses-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-container {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card {
+        margin: 0 10px;
+    }
+}

@@ -1,0 +1,256 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-y: auto; /* Enable vertical scrolling */
+    background: linear-gradient(-45deg, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite; /* Animation */
+}
+
+/* Animated background */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Fixed Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensures nav stays on top of content */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+}
+
+nav ul li {
+    font-size: 1.2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Container Styling */
+.container {
+    max-width: 900px; /* Increased width for more space */
+    margin: 120px auto 20px; /* Adjusted margin for space below the fixed nav */
+    padding: 30px; /* Increased padding */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 2.5rem; /* Increased font size */
+    color: #333;
+    margin-bottom: 30px; /* Increased margin */
+}
+
+/* Form Input Styling */
+input[type="text"] {
+    font-size: 1.2rem; /* Increased font size */
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 70%; /* Adjusted width */
+    outline: none;
+    margin-bottom: 20px; /* Increased margin-bottom */
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Button Styling */
+button {
+    font-size: 1.2rem; /* Increased font size */
+    padding: 12px 25px; /* Increased padding */
+    margin: 15px 10px; /* Increased margin */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Add Topic Button */
+button.add-topic-btn {
+    background-color: #28a745;
+    color: white;
+    width: auto; /* Adjust width */
+}
+
+button.add-topic-btn:hover {
+    background-color: #218838;
+}
+
+/* Submit Button */
+button.submit-btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+button.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Add Content Button */
+button.addcontent-btn {
+    background-color: #FF8C00; /* Color changed to Orange */
+    color: white;
+    font-size: 1.3rem; /* Increased font size */
+    padding: 15px 30px; /* Increased padding */
+    margin-top: 20px; /* Spaced out from other elements */
+}
+
+button.addcontent-btn:hover {
+    background-color: #e07b00;
+}
+
+/* Remove Button */
+button.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    font-size: 1.2rem; /* Increased font size */
+    padding: 12px 25px; /* Increased padding */
+}
+
+button.remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* Topic Row Styling */
+.topic-row {
+    display: flex;
+    flex-direction: column; /* Ensures that elements stack vertically */
+    gap: 15px; /* Increased gap between elements */
+    align-items: flex-start;
+    margin-bottom: 25px; /* Increased margin */
+    padding: 20px; /* Increased padding */
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%; /* Ensures full width of container */
+}
+
+/* Input Fields */
+.topic-input,
+.content-input {
+    width: 100%; /* Ensures input fields take full width */
+    padding: 12px; /* Increased padding */
+    margin-bottom: 5px; /* Increased bottom margin */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1rem; /* Increased font size */
+}
+
+/* Content Container Styling */
+.content-container {
+    width: 90%; /* Ensures content container takes full width */
+    margin-top: 4px; /* Spaced out from other elements */
+}
+
+/* Container for Topic and Content Fields */
+#topics-container {
+    width: 100%;
+    overflow-y: auto; /* Enables vertical scroll if content overflows */
+    margin-top: 30px; /* Added space for better layout */
+    padding-bottom: 20px; /* Padding at the bottom for better spacing */
+}
+
+/* General styling for button container */
+.button-wrapper {
+    display: flex;
+    justify-content: space-between; /* Space out the buttons */
+    width: 100%; /* Ensure full width */
+    margin-top: 10px; /* Space between content and buttons */
+}
+
+/* Styling for 'Add Topic' and 'Submit' buttons side by side */
+.button-wrapper button {
+    width: 48%; /* Ensures buttons take equal width and are spaced */
+}
+
+/* Styling for 'Add Content' button */
+.addcontent-btn {
+    background-color: #FF8C00;
+    color: white;
+    font-size: 1.3rem; /* Increased font size */
+    padding: 15px 30px;
+}
+
+/* Styling for 'Remove' button */
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    font-size: 1.2rem; /* Increased font size */
+    padding: 12px 25px;
+}
+
+/* Add hover effect for both buttons */
+.addcontent-btn:hover {
+    background-color: #e07b00;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+/* Content Input Styling */
+.content-input {
+    width: 100%; /* Ensures input fields take full width */
+    padding: 12px; /* Padding for better usability */
+    margin-bottom: 0; /* Removed margin-bottom to attach URL field */
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0; /* Rounded corners only at the top */
+    font-size: 1.1rem;
+}
+
+/* URL Input Styling */
+.url-input {
+    width: 100%; /* Full width to align with content input */
+    padding: 12px; /* Padding for consistency */
+    border: 1px solid #ccc;
+    border-top: none; /* Removes top border to visually merge with content input */
+    border-radius: 0 0 5px 5px; /* Rounded corners only at the bottom */
+    font-size: 1.1rem;
+}
+
+/* Adjustments for Content Container */
+.content-container {
+    width: 100%; /* Ensures full width of container */
+    margin-top: 4px; /* Spaced out from topic inputs */
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Equations Animation</title>
+    <link rel="stylesheet" href="/signup.css">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .equations-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .equation {
+            position: absolute;
+            font-size: 15px;
+            font-family: 'Ink Free', sans-serif;
+            font-weight:600;
+            color: rgb(231, 231, 223);
+            animation: move linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(calc(var(--dx) * 100vw), calc(var(--dy) * 100vh));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="equations-container"></div>
+    <div class="formula-ring"></div>
+
+    <!-- Signup Form -->
+    <form action="/signup" method="POST">
+        <h2>Signup</h2>
+        <input name="username" type="text" placeholder="Enter name" required>
+        <input name="password" type="password" placeholder="Enter password" required>
+        <input type="submit" value="Signup">
+        <a href="/login">Already signed up?</a>
+    </form>
+    <script>
+        const equations = [
+            "E = mc²", "F = ma", "a² + b² = c²", "∫f(x)dx", "Δx · Δp ≥ ħ/2",
+            "V = IR", "KE = ½mv²", "PV = nRT", "σ = F/A", "λ = v/f",
+            "P = VI", "W = mg", "τ = r × F", "ω = 2πf", "I = ∫r²dm",
+            "F = q(E + v × B)", "F = G(m₁m₂/r²)", "P = F/A", "Q = mcΔT",
+            "ΔU = Q - W", "a = (v - u)/t", "s = ut + ½at²", "v² = u² + 2as"
+        ];
+
+        const container = document.querySelector('.equations-container');
+        const totalEquations = 50; 
+
+        function createEquation() {
+            const span = document.createElement('span');
+            span.classList.add('equation');
+            span.innerText = equations[Math.floor(Math.random() * equations.length)];
+
+            
+            span.style.left = `${Math.random() * 100}vw`;
+            span.style.top = `${Math.random() * 100}vh`;
+            const dx = Math.random() * 2 - 1; 
+            const dy = Math.random() * 2 - 1; 
+            const duration = Math.random() * 20 + 20; 
+
+            
+            span.style.setProperty('--dx', dx);
+            span.style.setProperty('--dy', dy);
+            span.style.animationDuration = `${duration}s`;
+
+            container.appendChild(span);
+
+            
+            function updatePosition() {
+                const rect = span.getBoundingClientRect();
+                if (
+                    rect.right < 0 || rect.left > window.innerWidth ||
+                    rect.bottom < 0 || rect.top > window.innerHeight
+                ) {
+                
+                    span.style.left = `${Math.random() * 100}vw`;
+                    span.style.top = `${Math.random() * 100}vh`;
+                }
+            }
+
+            setInterval(updatePosition, 100); 
+        }
+
+        for (let i = 0; i < totalEquations; i++) {
+            createEquation();
+        }
+    </script>
+</body>
+</html>
